@@ -22,17 +22,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateTime() {
     let currentTime = new Date();
-    let hours = currentTime.getHours();
-    let minutes = currentTime.getMinutes();
-    let seconds = currentTime.getSeconds();
+    let time = currentTime.toUTCString().split(' ').slice(4);
 
-    hours = (hours < 10 ? "0" : "") + hours;
-    minutes = (minutes < 10 ? "0" : "") + minutes;
-    seconds = (seconds < 10 ? "0" : "") + seconds;
-
-    let timeString = hours + ":" + minutes + ":" + seconds;
-
-    currentTimeElement.textContent = "Current time is " + timeString  + " GMT";
+    currentTimeElement.textContent = "Current time is " + time.join(' ');
   }
 
   updateTime();
